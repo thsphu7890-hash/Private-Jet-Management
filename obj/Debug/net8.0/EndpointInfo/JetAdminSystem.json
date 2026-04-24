@@ -4047,7 +4047,7 @@
     "securitySchemes": {
       "Bearer": {
         "type": "apiKey",
-        "description": "Nhập Token: Bearer {your_token}",
+        "description": "Nhập Token theo cú pháp: Bearer {your_token}",
         "name": "Authorization",
         "in": "header"
       }

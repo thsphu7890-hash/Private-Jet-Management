@@ -8,41 +8,49 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-// --- DÒNG NÀY PHẢI ĐẶT SAU USING VÀ TRƯỚC BUILDER ĐỂ FIX LỖI DATETIME POSTGRES ---
+// --- 1. XỬ LÝ DATETIME CHO POSTGRESQL (RENDERS) ---
+// Tránh lỗi múi giờ khi deploy lên PostgreSQL trên Render
 System.AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- 0. CẤU HÌNH PORT CHO RENDER (GIÚP APP KHÔNG BỊ CRASH) ---
-var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
-builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+// --- 2. CẤU HÌNH PORT CHO RENDER ---
+if (!builder.Environment.IsDevelopment())
+{
+    var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+    builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+}
 
-// --- 1. CẤU HÌNH DATABASE ĐA MÔI TRƯỜNG (SQL SERVER <-> POSTGRESQL) ---
+// --- 3. CẤU HÌNH DATABASE ĐA MÔI TRƯỜNG ---
 builder.Services.AddDbContext<JetAdminDbContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
     if (builder.Environment.IsDevelopment())
     {
-        // Chạy Local dùng SQL Server
+        // Local: Dùng SQL Server (Đọc từ appsettings.Development.json)
         options.UseSqlServer(connectionString);
+        Console.WriteLine("--> [DATABASE] Running in Development: Using SQL Server");
     }
     else
     {
-        // Chạy trên Render dùng PostgreSQL
+        // Production: Dùng PostgreSQL (Đọc từ appsettings.json trên Render)
         options.UseNpgsql(connectionString);
+        Console.WriteLine("--> [DATABASE] Running in Production: Using PostgreSQL");
     }
 });
 
+// --- 4. CẤU HÌNH JSON ---
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
+        // Ngăn lỗi vòng lặp dữ liệu (Circular Reference)
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        // Giữ nguyên định dạng PascalCase của Model (tùy chọn của Phú)
         options.JsonSerializerOptions.PropertyNamingPolicy = null;
-        options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
     });
 
-// --- 2. CẤU HÌNH AUTHENTICATION (JWT) ---
+// --- 5. JWT AUTHENTICATION ---
 var secretKey = "asp.net_jetadmin_apibackend2026";
 var key = Encoding.ASCII.GetBytes(secretKey);
 
@@ -65,16 +73,13 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// --- 3. DỊCH VỤ CLOUDINARY & CORS ---
+// --- 6. DỊCH VỤ BỔ TRỢ (CLOUDINARY & CORS) ---
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowReactApp", policy =>
-        policy.WithOrigins(
-                "http://localhost:5173",
-                "https://private-jet-management-izkf.onrender.com"
-              )
+        policy.WithOrigins("http://localhost:5173", "https://private-jet-management-izkf.onrender.com")
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials());
@@ -82,44 +87,52 @@ builder.Services.AddCors(options => {
 
 builder.Services.AddEndpointsApiExplorer();
 
-// --- 4. CẤU HÌNH SWAGGER ---
+// --- 7. CẤU HÌNH SWAGGER ---
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "JetAdminSystem API", Version = "v1" });
+
+    // Tích hợp ô nhập Token vào Swagger
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "Nhập Token: Bearer {your_token}",
+        Description = "Nhập Token theo cú pháp: Bearer {your_token}",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
     });
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement {
         {
-            new OpenApiSecurityScheme
-            {
+            new OpenApiSecurityScheme {
                 Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
-            },
-            new string[] {}
+            }, new string[] {}
         }
     });
 });
 
 var app = builder.Build();
 
-// --- 5. MIDDLEWARE PIPELINE ---
+// --- 8. MIDDLEWARE PIPELINE ---
+
+// Luôn bật Swagger để Phú dễ test API
 app.UseSwagger();
 app.UseSwaggerUI(c => {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "JetAdminSystem v1");
-    c.RoutePrefix = string.Empty;
+
+    // Đã bỏ RoutePrefix = string.Empty để quay về dùng /swagger mặc định
 });
 
+app.UseStaticFiles();
 app.UseHttpsRedirection();
+app.UseRouting();
+
+// Thứ tự quan trọng: Cors -> Auth -> Authorization
 app.UseCors("AllowReactApp");
 
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
 app.Run();

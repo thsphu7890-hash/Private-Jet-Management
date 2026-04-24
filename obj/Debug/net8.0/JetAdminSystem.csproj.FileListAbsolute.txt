@@ -62,6 +62,8 @@ D:\JetAdminSystem\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Uti
 D:\JetAdminSystem\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 D:\JetAdminSystem\bin\Debug\net8.0\Mono.TextTemplating.dll
 D:\JetAdminSystem\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\JetAdminSystem\bin\Debug\net8.0\Npgsql.dll
+D:\JetAdminSystem\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 D:\JetAdminSystem\bin\Debug\net8.0\NuGet.Common.dll
 D:\JetAdminSystem\bin\Debug\net8.0\NuGet.Configuration.dll
 D:\JetAdminSystem\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
@@ -258,5 +260,3 @@ D:\JetAdminSystem\obj\Debug\net8.0\refint\JetAdminSystem.dll
 D:\JetAdminSystem\obj\Debug\net8.0\JetAdminSystem.pdb
 D:\JetAdminSystem\obj\Debug\net8.0\JetAdminSystem.genruntimeconfig.cache
 D:\JetAdminSystem\obj\Debug\net8.0\ref\JetAdminSystem.dll
-D:\JetAdminSystem\bin\Debug\net8.0\Npgsql.dll
-D:\JetAdminSystem\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
