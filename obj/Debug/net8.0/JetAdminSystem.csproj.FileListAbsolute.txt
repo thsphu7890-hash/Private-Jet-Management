@@ -258,3 +258,5 @@ D:\JetAdminSystem\obj\Debug\net8.0\refint\JetAdminSystem.dll
 D:\JetAdminSystem\obj\Debug\net8.0\JetAdminSystem.pdb
 D:\JetAdminSystem\obj\Debug\net8.0\JetAdminSystem.genruntimeconfig.cache
 D:\JetAdminSystem\obj\Debug\net8.0\ref\JetAdminSystem.dll
+D:\JetAdminSystem\bin\Debug\net8.0\Npgsql.dll
+D:\JetAdminSystem\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

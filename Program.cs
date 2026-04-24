@@ -10,26 +10,14 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- 0. CẤU HÌNH PORT CHO RENDER (GIÚP APP KHÔNG BỊ CRASH) ---
+// --- 0. CẤU HÌNH PORT CHO RENDER ---
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
-// --- 1. CẤU HÌNH DATABASE ĐA MÔI TRƯỜNG (SQL SERVER <-> POSTGRESQL) ---
+// --- 1. CẤU HÌNH DATABASE (ÉP DÙNG POSTGRESQL ĐỂ CHẠY MIGRATION) ---
+// Sau khi Update-Database thành công, ông có thể đổi lại logic IF/ELSE như cũ
 builder.Services.AddDbContext<JetAdminDbContext>(options =>
-{
-    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-    if (builder.Environment.IsDevelopment())
-    {
-        // Chạy Local dùng SQL Server
-        options.UseSqlServer(connectionString);
-    }
-    else
-    {
-        // Chạy trên Render dùng PostgreSQL
-        options.UseNpgsql(connectionString);
-    }
-});
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -68,11 +56,7 @@ builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowReactApp", policy =>
-        policy.WithOrigins(
-                "http://localhost:5173",
-                "https://private-jet-management-izkf.onrender.com" // Link backend mới của ông
-                                                                   // Nếu ông deploy React lên link khác, hãy thêm URL vào đây
-              )
+        policy.WithOrigins("http://localhost:5173", "https://private-jet-management-izkf.onrender.com")
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials());
@@ -106,19 +90,16 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// --- 5. MIDDLEWARE PIPELINE ---
-// Mở Swagger cho cả Production để ông test trực tiếp trên Render
+// --- 5. MIDDLEWARE ---
 app.UseSwagger();
 app.UseSwaggerUI(c => {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "JetAdminSystem v1");
-    c.RoutePrefix = string.Empty; // Vào link Render cái là thấy Swagger luôn
+    c.RoutePrefix = string.Empty;
 });
 
 app.UseHttpsRedirection();
 app.UseCors("AllowReactApp");
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 app.Run();
