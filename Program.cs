@@ -10,9 +10,26 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- 1. CẤU HÌNH DATABASE & CONTROLLERS ---
+// --- 0. CẤU HÌNH PORT CHO RENDER (GIÚP APP KHÔNG BỊ CRASH) ---
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
+// --- 1. CẤU HÌNH DATABASE ĐA MÔI TRƯỜNG (SQL SERVER <-> POSTGRESQL) ---
 builder.Services.AddDbContext<JetAdminDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+    if (builder.Environment.IsDevelopment())
+    {
+        // Chạy Local dùng SQL Server
+        options.UseSqlServer(connectionString);
+    }
+    else
+    {
+        // Chạy trên Render dùng PostgreSQL
+        options.UseNpgsql(connectionString);
+    }
+});
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -22,8 +39,7 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
     });
 
-// --- 2. CẤU HÌNH AUTHENTICATION (QUAN TRỌNG NHẤT) ---
-// Chuỗi Key này phải khớp 100% với chuỗi ở AuthController
+// --- 2. CẤU HÌNH AUTHENTICATION (JWT) ---
 var secretKey = "asp.net_jetadmin_apibackend2026";
 var key = Encoding.ASCII.GetBytes(secretKey);
 
@@ -42,17 +58,21 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(key),
         ValidateIssuer = false,
         ValidateAudience = false,
-        RoleClaimType = System.Security.Claims.ClaimTypes.Role // Giúp [Authorize(Roles="Admin")] hoạt động
+        RoleClaimType = System.Security.Claims.ClaimTypes.Role
     };
 });
 
-// --- 3. CÁC DỊCH VỤ KHÁC ---
+// --- 3. DỊCH VỤ CLOUDINARY & CORS ---
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowReactApp", policy =>
-        policy.WithOrigins("http://localhost:5173")
+        policy.WithOrigins(
+                "http://localhost:5173",
+                "https://private-jet-management-izkf.onrender.com" // Link backend mới của ông
+                                                                   // Nếu ông deploy React lên link khác, hãy thêm URL vào đây
+              )
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials());
@@ -60,21 +80,18 @@ builder.Services.AddCors(options => {
 
 builder.Services.AddEndpointsApiExplorer();
 
-// --- 4. CẤU HÌNH SWAGGER (Bổ sung nút Authorize để test Token) ---
+// --- 4. CẤU HÌNH SWAGGER ---
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "JetAdminSystem API", Version = "v1" });
-
-    // Thêm cấu hình để có nút "Authorize" (ổ khóa) trên Swagger
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "Nhập Token theo cú pháp: Bearer {your_token}",
+        Description = "Nhập Token: Bearer {your_token}",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
     });
-
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
@@ -85,25 +102,21 @@ builder.Services.AddSwaggerGen(c =>
             new string[] {}
         }
     });
-
-    c.MapType<IFormFile>(() => new OpenApiSchema { Type = "string", Format = "binary" });
-    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 });
 
 var app = builder.Build();
 
-// --- 5. MIDDLEWARE (THỨ TỰ RẤT QUAN TRỌNG) ---
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-    app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "JetAdminSystem v1"));
-}
+// --- 5. MIDDLEWARE PIPELINE ---
+// Mở Swagger cho cả Production để ông test trực tiếp trên Render
+app.UseSwagger();
+app.UseSwaggerUI(c => {
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "JetAdminSystem v1");
+    c.RoutePrefix = string.Empty; // Vào link Render cái là thấy Swagger luôn
+});
 
 app.UseHttpsRedirection();
 app.UseCors("AllowReactApp");
 
-// LƯU Ý: Authentication phải đứng TRƯỚC Authorization
 app.UseAuthentication();
 app.UseAuthorization();
 

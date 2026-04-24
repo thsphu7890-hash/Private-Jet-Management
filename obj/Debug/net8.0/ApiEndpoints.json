@@ -1,0 +1,2144 @@
+[
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AccountsController",
+    "Method": "GetAccounts",
+    "RelativePath": "api/Accounts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[JetAdminSystem.Models.Account, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AccountsController",
+    "Method": "PostAccount",
+    "RelativePath": "api/Accounts",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "account",
+        "Type": "JetAdminSystem.Models.Account",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.Account",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AccountsController",
+    "Method": "GetAccount",
+    "RelativePath": "api/Accounts/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.Account",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AccountsController",
+    "Method": "PutAccount",
+    "RelativePath": "api/Accounts/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "account",
+        "Type": "JetAdminSystem.Models.Account",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AccountsController",
+    "Method": "DeleteAccount",
+    "RelativePath": "api/Accounts/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AircraftController",
+    "Method": "GetAircrafts",
+    "RelativePath": "api/Aircraft",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[JetAdminSystem.Models.Aircraft, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AircraftController",
+    "Method": "PostAircraft",
+    "RelativePath": "api/Aircraft",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AircraftId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "AircraftName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Model",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TailNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Capacity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PricePerHour",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "ExteriorImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "InteriorImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ExteriorFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "InteriorFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category.CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category.CategoryName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category.Aircrafts",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Aircraft, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "FlightSchedules",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.FlightSchedule, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "InteriorFiles",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.Aircraft",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AircraftController",
+    "Method": "GetAircraft",
+    "RelativePath": "api/Aircraft/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.Aircraft",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AircraftController",
+    "Method": "PutAircraft",
+    "RelativePath": "api/Aircraft/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "AircraftId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "AircraftName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Model",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TailNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Capacity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PricePerHour",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "ExteriorImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "InteriorImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ExteriorFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "InteriorFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category.CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category.CategoryName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Category.Aircrafts",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Aircraft, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "FlightSchedules",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.FlightSchedule, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "InteriorFiles",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AircraftController",
+    "Method": "DeleteAircraft",
+    "RelativePath": "api/Aircraft/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AircraftCategoriesController",
+    "Method": "GetAircraftCategories",
+    "RelativePath": "api/AircraftCategories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[JetAdminSystem.Models.AircraftCategory, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AircraftCategoriesController",
+    "Method": "PostAircraftCategory",
+    "RelativePath": "api/AircraftCategories",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "aircraftCategory",
+        "Type": "JetAdminSystem.Models.AircraftCategory",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.AircraftCategory",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AircraftCategoriesController",
+    "Method": "GetAircraftCategory",
+    "RelativePath": "api/AircraftCategories/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.AircraftCategory",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AircraftCategoriesController",
+    "Method": "PutAircraftCategory",
+    "RelativePath": "api/AircraftCategories/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "aircraftCategory",
+        "Type": "JetAdminSystem.Models.AircraftCategory",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AircraftCategoriesController",
+    "Method": "DeleteAircraftCategory",
+    "RelativePath": "api/AircraftCategories/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AirportsController",
+    "Method": "GetAirports",
+    "RelativePath": "api/Airports",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[JetAdminSystem.Models.Airport, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AirportsController",
+    "Method": "PostAirport",
+    "RelativePath": "api/Airports",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "airport",
+        "Type": "JetAdminSystem.Models.Airport",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.Airport",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AirportsController",
+    "Method": "GetAirport",
+    "RelativePath": "api/Airports/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.Airport",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AirportsController",
+    "Method": "PutAirport",
+    "RelativePath": "api/Airports/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "airport",
+        "Type": "JetAdminSystem.Models.Airport",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AirportsController",
+    "Method": "DeleteAirport",
+    "RelativePath": "api/Airports/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "JetAdminSystem.Controllers.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.AuthController",
+    "Method": "GetMe",
+    "RelativePath": "api/Auth/me",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BillingsController",
+    "Method": "GetBillings",
+    "RelativePath": "api/Billings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[JetAdminSystem.Models.Billing, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BillingsController",
+    "Method": "PostBilling",
+    "RelativePath": "api/Billings",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BillingId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "BookingId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "SubTotal",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "TaxAmount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "GrandTotal",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "BrokerCommission",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "PaymentMethod",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PaymentStatus",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TransactionReference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "InvoiceImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PaymentDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.BookingId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.PassengerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.ScheduleId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.BrokerId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.SeatCount",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.BasePrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Surcharge",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.TotalAmount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.BookingDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.InternalNotes",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Passenger.PassengerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Passenger.FullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Passenger.PassportNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Passenger.PassportExpiry",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Passenger.Nationality",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Passenger.DateOfBirth",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Passenger.ImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Passenger.PassportScanUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Passenger.PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Passenger.Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Passenger.Bookings",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Booking, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.ScheduleId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.AircraftId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.DepartureAirportId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.ArrivalAirportId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.DepartureTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.ArrivalTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.FlightStatus",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.AircraftId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.AircraftName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.Model",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.TailNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.Capacity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.PricePerHour",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.ExteriorImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.InteriorImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.ExteriorFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.InteriorFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.Category.CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.Category.CategoryName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.Category.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.Category.Aircrafts",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Aircraft, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Aircraft.FlightSchedules",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.FlightSchedule, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.DepartureAirport.AirportId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.DepartureAirport.AirportName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.DepartureAirport.IATACode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.DepartureAirport.City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.DepartureAirport.Country",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.ArrivalAirport.AirportId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.ArrivalAirport.AirportName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.ArrivalAirport.IATACode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.ArrivalAirport.City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.ArrivalAirport.Country",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Schedule.Bookings",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Booking, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Broker.BrokerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Broker.BrokerName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Broker.AvatarUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Broker.ContactPerson",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Broker.Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Broker.PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Broker.CommissionRate",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Broker.Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Broker.Bookings",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Booking, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.BillingId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.BookingId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.SubTotal",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.TaxAmount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.GrandTotal",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.BrokerCommission",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.PaymentMethod",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.PaymentStatus",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.TransactionReference",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.InvoiceImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.PaymentDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.CreatedDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.BookingId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.PassengerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.ScheduleId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.BrokerId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.SeatCount",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.BasePrice",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Surcharge",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.TotalAmount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.BookingDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.InternalNotes",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Passenger.PassengerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Passenger.FullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Passenger.PassportNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Passenger.PassportExpiry",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Passenger.Nationality",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Passenger.DateOfBirth",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Passenger.ImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Passenger.PassportScanUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Passenger.PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Passenger.Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Passenger.Bookings",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Booking, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.ScheduleId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.AircraftId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.DepartureAirportId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.ArrivalAirportId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.DepartureTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.ArrivalTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.FlightStatus",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.AircraftId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.AircraftName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.Model",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.TailNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.Capacity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.PricePerHour",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.ExteriorImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.InteriorImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.Status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.ExteriorFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.InteriorFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.Category.CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.Category.CategoryName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.Category.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.Category.Aircrafts",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Aircraft, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Aircraft.FlightSchedules",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.FlightSchedule, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.DepartureAirport.AirportId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.DepartureAirport.AirportName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.DepartureAirport.IATACode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.DepartureAirport.City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.DepartureAirport.Country",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.ArrivalAirport.AirportId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.ArrivalAirport.AirportName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.ArrivalAirport.IATACode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.ArrivalAirport.City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.ArrivalAirport.Country",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Schedule.Bookings",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Booking, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Broker.BrokerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Broker.BrokerName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Broker.AvatarUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Broker.ContactPerson",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Broker.Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Broker.PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Broker.CommissionRate",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Broker.Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Broker.Bookings",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Booking, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Booking.Billing.Booking.Billing",
+        "Type": "JetAdminSystem.Models.Billing",
+        "IsRequired": false
+      },
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.Billing",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BillingsController",
+    "Method": "DeleteBilling",
+    "RelativePath": "api/Billings/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BillingsController",
+    "Method": "ConfirmPayment",
+    "RelativePath": "api/Billings/{id}/confirm",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "method",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BookingsController",
+    "Method": "GetBookings",
+    "RelativePath": "api/Bookings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[JetAdminSystem.Models.Booking, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BookingsController",
+    "Method": "PostBooking",
+    "RelativePath": "api/Bookings",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "booking",
+        "Type": "JetAdminSystem.Models.Booking",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.Booking",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BookingsController",
+    "Method": "GetBooking",
+    "RelativePath": "api/Bookings/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.Booking",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BookingsController",
+    "Method": "PutBooking",
+    "RelativePath": "api/Bookings/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "booking",
+        "Type": "JetAdminSystem.Models.Booking",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BookingsController",
+    "Method": "DeleteBooking",
+    "RelativePath": "api/Bookings/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BrokersController",
+    "Method": "GetBrokers",
+    "RelativePath": "api/Brokers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[JetAdminSystem.Models.Broker, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BrokersController",
+    "Method": "PostBroker",
+    "RelativePath": "api/Brokers",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BrokerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "BrokerName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "AvatarUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContactPerson",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CommissionRate",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Bookings",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Booking, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "imageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.Broker",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BrokersController",
+    "Method": "GetBroker",
+    "RelativePath": "api/Brokers/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.Broker",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BrokersController",
+    "Method": "PutBroker",
+    "RelativePath": "api/Brokers/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "BrokerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "BrokerName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "AvatarUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContactPerson",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CommissionRate",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Bookings",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Booking, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "imageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.BrokersController",
+    "Method": "DeleteBroker",
+    "RelativePath": "api/Brokers/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.FlightSchedulesController",
+    "Method": "GetFlightSchedules",
+    "RelativePath": "api/FlightSchedules",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[JetAdminSystem.Models.FlightSchedule, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.FlightSchedulesController",
+    "Method": "PostFlightSchedule",
+    "RelativePath": "api/FlightSchedules",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "flightSchedule",
+        "Type": "JetAdminSystem.Models.FlightSchedule",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.FlightSchedule",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.FlightSchedulesController",
+    "Method": "GetFlightSchedule",
+    "RelativePath": "api/FlightSchedules/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "JetAdminSystem.Models.FlightSchedule",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.FlightSchedulesController",
+    "Method": "PutFlightSchedule",
+    "RelativePath": "api/FlightSchedules/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "flightSchedule",
+        "Type": "JetAdminSystem.Models.FlightSchedule",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.FlightSchedulesController",
+    "Method": "DeleteFlightSchedule",
+    "RelativePath": "api/FlightSchedules/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.PassengersController",
+    "Method": "Get",
+    "RelativePath": "api/Passengers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.PassengersController",
+    "Method": "Post",
+    "RelativePath": "api/Passengers",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PassengerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "FullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PassportNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PassportExpiry",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Nationality",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DateOfBirth",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PassportScanUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Bookings",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Booking, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "avatarFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "passportFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.PassengersController",
+    "Method": "Get",
+    "RelativePath": "api/Passengers/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.PassengersController",
+    "Method": "Put",
+    "RelativePath": "api/Passengers/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PassengerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "FullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PassportNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PassportExpiry",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Nationality",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DateOfBirth",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PassportScanUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Bookings",
+        "Type": "System.Collections.Generic.ICollection\u00601[[JetAdminSystem.Models.Booking, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "avatarFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "passportFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.PassengersController",
+    "Method": "Delete",
+    "RelativePath": "api/Passengers/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "JetAdminSystem.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[JetAdminSystem.WeatherForecast, JetAdminSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

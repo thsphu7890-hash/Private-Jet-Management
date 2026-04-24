@@ -1,0 +1,4061 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "JetAdminSystem API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Accounts": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Account"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Accounts"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Account"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Account"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Account"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Accounts/{id}": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Accounts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Account"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Account"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Account"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Accounts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Aircraft": {
+      "get": {
+        "tags": [
+          "Aircraft"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aircraft"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aircraft"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aircraft"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Aircraft"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "AircraftName",
+                  "Category.CategoryName",
+                  "Model",
+                  "Status",
+                  "TailNumber"
+                ],
+                "type": "object",
+                "properties": {
+                  "AircraftId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "AircraftName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Model": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "TailNumber": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Capacity": {
+                    "maximum": 500,
+                    "minimum": 1,
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "PricePerHour": {
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "ExteriorImageUrl": {
+                    "type": "string"
+                  },
+                  "InteriorImageUrl": {
+                    "type": "string"
+                  },
+                  "Status": {
+                    "type": "string"
+                  },
+                  "ExteriorFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "InteriorFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Category.CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Category.CategoryName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Category.Description": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Category.Aircrafts": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Aircraft"
+                    }
+                  },
+                  "FlightSchedules": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/FlightSchedule"
+                    }
+                  },
+                  "InteriorFiles": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "AircraftId": {
+                  "style": "form"
+                },
+                "AircraftName": {
+                  "style": "form"
+                },
+                "Model": {
+                  "style": "form"
+                },
+                "TailNumber": {
+                  "style": "form"
+                },
+                "CategoryId": {
+                  "style": "form"
+                },
+                "Capacity": {
+                  "style": "form"
+                },
+                "PricePerHour": {
+                  "style": "form"
+                },
+                "ExteriorImageUrl": {
+                  "style": "form"
+                },
+                "InteriorImageUrl": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "ExteriorFile": {
+                  "style": "form"
+                },
+                "InteriorFile": {
+                  "style": "form"
+                },
+                "Category.CategoryId": {
+                  "style": "form"
+                },
+                "Category.CategoryName": {
+                  "style": "form"
+                },
+                "Category.Description": {
+                  "style": "form"
+                },
+                "Category.Aircrafts": {
+                  "style": "form"
+                },
+                "FlightSchedules": {
+                  "style": "form"
+                },
+                "InteriorFiles": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aircraft"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aircraft"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aircraft"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Aircraft/{id}": {
+      "get": {
+        "tags": [
+          "Aircraft"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aircraft"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aircraft"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aircraft"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Aircraft"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "AircraftName",
+                  "Category.CategoryName",
+                  "Model",
+                  "Status",
+                  "TailNumber"
+                ],
+                "type": "object",
+                "properties": {
+                  "AircraftId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "AircraftName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Model": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "TailNumber": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Capacity": {
+                    "maximum": 500,
+                    "minimum": 1,
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "PricePerHour": {
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "ExteriorImageUrl": {
+                    "type": "string"
+                  },
+                  "InteriorImageUrl": {
+                    "type": "string"
+                  },
+                  "Status": {
+                    "type": "string"
+                  },
+                  "ExteriorFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "InteriorFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Category.CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Category.CategoryName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Category.Description": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Category.Aircrafts": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Aircraft"
+                    }
+                  },
+                  "FlightSchedules": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/FlightSchedule"
+                    }
+                  },
+                  "InteriorFiles": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "AircraftId": {
+                  "style": "form"
+                },
+                "AircraftName": {
+                  "style": "form"
+                },
+                "Model": {
+                  "style": "form"
+                },
+                "TailNumber": {
+                  "style": "form"
+                },
+                "CategoryId": {
+                  "style": "form"
+                },
+                "Capacity": {
+                  "style": "form"
+                },
+                "PricePerHour": {
+                  "style": "form"
+                },
+                "ExteriorImageUrl": {
+                  "style": "form"
+                },
+                "InteriorImageUrl": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "ExteriorFile": {
+                  "style": "form"
+                },
+                "InteriorFile": {
+                  "style": "form"
+                },
+                "Category.CategoryId": {
+                  "style": "form"
+                },
+                "Category.CategoryName": {
+                  "style": "form"
+                },
+                "Category.Description": {
+                  "style": "form"
+                },
+                "Category.Aircrafts": {
+                  "style": "form"
+                },
+                "FlightSchedules": {
+                  "style": "form"
+                },
+                "InteriorFiles": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Aircraft"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/AircraftCategories": {
+      "get": {
+        "tags": [
+          "AircraftCategories"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AircraftCategory"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AircraftCategory"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AircraftCategory"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "AircraftCategories"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AircraftCategory"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AircraftCategory"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AircraftCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AircraftCategory"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AircraftCategory"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AircraftCategory"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/AircraftCategories/{id}": {
+      "get": {
+        "tags": [
+          "AircraftCategories"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AircraftCategory"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AircraftCategory"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AircraftCategory"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "AircraftCategories"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AircraftCategory"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AircraftCategory"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AircraftCategory"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "AircraftCategories"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Airports": {
+      "get": {
+        "tags": [
+          "Airports"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Airport"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Airport"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Airport"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Airports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Airport"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Airport"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Airport"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airport"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airport"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airport"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Airports/{id}": {
+      "get": {
+        "tags": [
+          "Airports"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airport"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airport"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Airport"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Airports"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Airport"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Airport"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Airport"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Airports"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/me": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Billings": {
+      "get": {
+        "tags": [
+          "Billings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Billing"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Billing"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Billing"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Billings"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Booking.BasePrice",
+                  "Booking.Billing.Booking.BasePrice",
+                  "Booking.Billing.Booking.BookingDate",
+                  "Booking.Billing.Booking.Broker.BrokerName",
+                  "Booking.Billing.Booking.Broker.Email",
+                  "Booking.Billing.Booking.Passenger.DateOfBirth",
+                  "Booking.Billing.Booking.Passenger.FullName",
+                  "Booking.Billing.Booking.Passenger.Nationality",
+                  "Booking.Billing.Booking.Passenger.PassportExpiry",
+                  "Booking.Billing.Booking.Passenger.PassportNumber",
+                  "Booking.Billing.Booking.PassengerId",
+                  "Booking.Billing.Booking.Schedule.Aircraft.AircraftName",
+                  "Booking.Billing.Booking.Schedule.Aircraft.Category.CategoryName",
+                  "Booking.Billing.Booking.Schedule.Aircraft.Model",
+                  "Booking.Billing.Booking.Schedule.Aircraft.Status",
+                  "Booking.Billing.Booking.Schedule.Aircraft.TailNumber",
+                  "Booking.Billing.Booking.Schedule.AircraftId",
+                  "Booking.Billing.Booking.Schedule.ArrivalAirport.AirportName",
+                  "Booking.Billing.Booking.Schedule.ArrivalAirport.City",
+                  "Booking.Billing.Booking.Schedule.ArrivalAirport.Country",
+                  "Booking.Billing.Booking.Schedule.ArrivalAirport.IATACode",
+                  "Booking.Billing.Booking.Schedule.ArrivalAirportId",
+                  "Booking.Billing.Booking.Schedule.ArrivalTime",
+                  "Booking.Billing.Booking.Schedule.DepartureAirport.AirportName",
+                  "Booking.Billing.Booking.Schedule.DepartureAirport.City",
+                  "Booking.Billing.Booking.Schedule.DepartureAirport.Country",
+                  "Booking.Billing.Booking.Schedule.DepartureAirport.IATACode",
+                  "Booking.Billing.Booking.Schedule.DepartureAirportId",
+                  "Booking.Billing.Booking.Schedule.DepartureTime",
+                  "Booking.Billing.Booking.Schedule.FlightStatus",
+                  "Booking.Billing.Booking.ScheduleId",
+                  "Booking.Billing.Booking.SeatCount",
+                  "Booking.Billing.Booking.Status",
+                  "Booking.Billing.Booking.TotalAmount",
+                  "Booking.Billing.BookingId",
+                  "Booking.Billing.GrandTotal",
+                  "Booking.Billing.PaymentMethod",
+                  "Booking.Billing.PaymentStatus",
+                  "Booking.Billing.SubTotal",
+                  "Booking.BookingDate",
+                  "Booking.Broker.BrokerName",
+                  "Booking.Broker.Email",
+                  "Booking.Passenger.DateOfBirth",
+                  "Booking.Passenger.FullName",
+                  "Booking.Passenger.Nationality",
+                  "Booking.Passenger.PassportExpiry",
+                  "Booking.Passenger.PassportNumber",
+                  "Booking.PassengerId",
+                  "Booking.Schedule.Aircraft.AircraftName",
+                  "Booking.Schedule.Aircraft.Category.CategoryName",
+                  "Booking.Schedule.Aircraft.Model",
+                  "Booking.Schedule.Aircraft.Status",
+                  "Booking.Schedule.Aircraft.TailNumber",
+                  "Booking.Schedule.AircraftId",
+                  "Booking.Schedule.ArrivalAirport.AirportName",
+                  "Booking.Schedule.ArrivalAirport.City",
+                  "Booking.Schedule.ArrivalAirport.Country",
+                  "Booking.Schedule.ArrivalAirport.IATACode",
+                  "Booking.Schedule.ArrivalAirportId",
+                  "Booking.Schedule.ArrivalTime",
+                  "Booking.Schedule.DepartureAirport.AirportName",
+                  "Booking.Schedule.DepartureAirport.City",
+                  "Booking.Schedule.DepartureAirport.Country",
+                  "Booking.Schedule.DepartureAirport.IATACode",
+                  "Booking.Schedule.DepartureAirportId",
+                  "Booking.Schedule.DepartureTime",
+                  "Booking.Schedule.FlightStatus",
+                  "Booking.ScheduleId",
+                  "Booking.SeatCount",
+                  "Booking.Status",
+                  "Booking.TotalAmount",
+                  "BookingId",
+                  "GrandTotal",
+                  "PaymentMethod",
+                  "PaymentStatus",
+                  "SubTotal"
+                ],
+                "type": "object",
+                "properties": {
+                  "BillingId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "BookingId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "SubTotal": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "TaxAmount": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "GrandTotal": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "BrokerCommission": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "PaymentMethod": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "PaymentStatus": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "TransactionReference": {
+                    "type": "string"
+                  },
+                  "InvoiceImageUrl": {
+                    "type": "string"
+                  },
+                  "PaymentDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "CreatedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Booking.BookingId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.PassengerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.ScheduleId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.BrokerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.SeatCount": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.BasePrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.Surcharge": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.TotalAmount": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.Status": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.BookingDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Booking.InternalNotes": {
+                    "type": "string"
+                  },
+                  "Booking.Passenger.PassengerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Passenger.FullName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Passenger.PassportNumber": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Passenger.PassportExpiry": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "Booking.Passenger.Nationality": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Passenger.DateOfBirth": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "Booking.Passenger.ImageUrl": {
+                    "type": "string"
+                  },
+                  "Booking.Passenger.PassportScanUrl": {
+                    "type": "string"
+                  },
+                  "Booking.Passenger.PhoneNumber": {
+                    "maxLength": 15,
+                    "minLength": 0,
+                    "type": "string",
+                    "format": "tel"
+                  },
+                  "Booking.Passenger.Email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "Booking.Passenger.Bookings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Booking"
+                    }
+                  },
+                  "Booking.Schedule.ScheduleId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Schedule.AircraftId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Schedule.DepartureAirportId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Schedule.ArrivalAirportId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Schedule.DepartureTime": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Booking.Schedule.ArrivalTime": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Booking.Schedule.FlightStatus": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.Aircraft.AircraftId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Schedule.Aircraft.AircraftName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.Aircraft.Model": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.Aircraft.TailNumber": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.Aircraft.CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Schedule.Aircraft.Capacity": {
+                    "maximum": 500,
+                    "minimum": 1,
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Schedule.Aircraft.PricePerHour": {
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.Schedule.Aircraft.ExteriorImageUrl": {
+                    "type": "string"
+                  },
+                  "Booking.Schedule.Aircraft.InteriorImageUrl": {
+                    "type": "string"
+                  },
+                  "Booking.Schedule.Aircraft.Status": {
+                    "type": "string"
+                  },
+                  "Booking.Schedule.Aircraft.ExteriorFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Booking.Schedule.Aircraft.InteriorFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Booking.Schedule.Aircraft.Category.CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Schedule.Aircraft.Category.CategoryName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.Aircraft.Category.Description": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.Aircraft.Category.Aircrafts": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Aircraft"
+                    }
+                  },
+                  "Booking.Schedule.Aircraft.FlightSchedules": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/FlightSchedule"
+                    }
+                  },
+                  "Booking.Schedule.DepartureAirport.AirportId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Schedule.DepartureAirport.AirportName": {
+                    "maxLength": 200,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.DepartureAirport.IATACode": {
+                    "maxLength": 3,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.DepartureAirport.City": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.DepartureAirport.Country": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.ArrivalAirport.AirportId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Schedule.ArrivalAirport.AirportName": {
+                    "maxLength": 200,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.ArrivalAirport.IATACode": {
+                    "maxLength": 3,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.ArrivalAirport.City": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.ArrivalAirport.Country": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Schedule.Bookings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Booking"
+                    }
+                  },
+                  "Booking.Broker.BrokerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Broker.BrokerName": {
+                    "maxLength": 150,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Broker.AvatarUrl": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Broker.ContactPerson": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Broker.Email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "Booking.Broker.PhoneNumber": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string",
+                    "format": "tel"
+                  },
+                  "Booking.Broker.CommissionRate": {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.Broker.Address": {
+                    "type": "string"
+                  },
+                  "Booking.Broker.Bookings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Booking"
+                    }
+                  },
+                  "Booking.Billing.BillingId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.BookingId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.SubTotal": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.Billing.TaxAmount": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.Billing.GrandTotal": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.Billing.BrokerCommission": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.Billing.PaymentMethod": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.PaymentStatus": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.TransactionReference": {
+                    "type": "string"
+                  },
+                  "Booking.Billing.InvoiceImageUrl": {
+                    "type": "string"
+                  },
+                  "Booking.Billing.PaymentDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Booking.Billing.CreatedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Booking.Billing.Booking.BookingId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.PassengerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.ScheduleId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.BrokerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.SeatCount": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.BasePrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.Billing.Booking.Surcharge": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.Billing.Booking.TotalAmount": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.Billing.Booking.Status": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.BookingDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Booking.Billing.Booking.InternalNotes": {
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Passenger.PassengerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.Passenger.FullName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Passenger.PassportNumber": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Passenger.PassportExpiry": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "Booking.Billing.Booking.Passenger.Nationality": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Passenger.DateOfBirth": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "Booking.Billing.Booking.Passenger.ImageUrl": {
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Passenger.PassportScanUrl": {
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Passenger.PhoneNumber": {
+                    "maxLength": 15,
+                    "minLength": 0,
+                    "type": "string",
+                    "format": "tel"
+                  },
+                  "Booking.Billing.Booking.Passenger.Email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "Booking.Billing.Booking.Passenger.Bookings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Booking"
+                    }
+                  },
+                  "Booking.Billing.Booking.Schedule.ScheduleId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.Schedule.AircraftId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.Schedule.DepartureAirportId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.Schedule.ArrivalAirportId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.Schedule.DepartureTime": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Booking.Billing.Booking.Schedule.ArrivalTime": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Booking.Billing.Booking.Schedule.FlightStatus": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.AircraftId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.AircraftName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.Model": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.TailNumber": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.Capacity": {
+                    "maximum": 500,
+                    "minimum": 1,
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.PricePerHour": {
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.ExteriorImageUrl": {
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.InteriorImageUrl": {
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.Status": {
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.ExteriorFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.InteriorFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.Category.CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.Category.CategoryName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.Category.Description": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.Category.Aircrafts": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Aircraft"
+                    }
+                  },
+                  "Booking.Billing.Booking.Schedule.Aircraft.FlightSchedules": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/FlightSchedule"
+                    }
+                  },
+                  "Booking.Billing.Booking.Schedule.DepartureAirport.AirportId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.Schedule.DepartureAirport.AirportName": {
+                    "maxLength": 200,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.DepartureAirport.IATACode": {
+                    "maxLength": 3,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.DepartureAirport.City": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.DepartureAirport.Country": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.ArrivalAirport.AirportId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.Schedule.ArrivalAirport.AirportName": {
+                    "maxLength": 200,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.ArrivalAirport.IATACode": {
+                    "maxLength": 3,
+                    "minLength": 3,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.ArrivalAirport.City": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.ArrivalAirport.Country": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Schedule.Bookings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Booking"
+                    }
+                  },
+                  "Booking.Billing.Booking.Broker.BrokerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Booking.Billing.Booking.Broker.BrokerName": {
+                    "maxLength": 150,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Broker.AvatarUrl": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Broker.ContactPerson": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Broker.Email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "Booking.Billing.Booking.Broker.PhoneNumber": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string",
+                    "format": "tel"
+                  },
+                  "Booking.Billing.Booking.Broker.CommissionRate": {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Booking.Billing.Booking.Broker.Address": {
+                    "type": "string"
+                  },
+                  "Booking.Billing.Booking.Broker.Bookings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Booking"
+                    }
+                  },
+                  "Booking.Billing.Booking.Billing": {
+                    "$ref": "#/components/schemas/Billing"
+                  },
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "BillingId": {
+                  "style": "form"
+                },
+                "BookingId": {
+                  "style": "form"
+                },
+                "SubTotal": {
+                  "style": "form"
+                },
+                "TaxAmount": {
+                  "style": "form"
+                },
+                "GrandTotal": {
+                  "style": "form"
+                },
+                "BrokerCommission": {
+                  "style": "form"
+                },
+                "PaymentMethod": {
+                  "style": "form"
+                },
+                "PaymentStatus": {
+                  "style": "form"
+                },
+                "TransactionReference": {
+                  "style": "form"
+                },
+                "InvoiceImageUrl": {
+                  "style": "form"
+                },
+                "PaymentDate": {
+                  "style": "form"
+                },
+                "CreatedDate": {
+                  "style": "form"
+                },
+                "Booking.BookingId": {
+                  "style": "form"
+                },
+                "Booking.PassengerId": {
+                  "style": "form"
+                },
+                "Booking.ScheduleId": {
+                  "style": "form"
+                },
+                "Booking.BrokerId": {
+                  "style": "form"
+                },
+                "Booking.SeatCount": {
+                  "style": "form"
+                },
+                "Booking.BasePrice": {
+                  "style": "form"
+                },
+                "Booking.Surcharge": {
+                  "style": "form"
+                },
+                "Booking.TotalAmount": {
+                  "style": "form"
+                },
+                "Booking.Status": {
+                  "style": "form"
+                },
+                "Booking.BookingDate": {
+                  "style": "form"
+                },
+                "Booking.InternalNotes": {
+                  "style": "form"
+                },
+                "Booking.Passenger.PassengerId": {
+                  "style": "form"
+                },
+                "Booking.Passenger.FullName": {
+                  "style": "form"
+                },
+                "Booking.Passenger.PassportNumber": {
+                  "style": "form"
+                },
+                "Booking.Passenger.PassportExpiry": {
+                  "style": "form"
+                },
+                "Booking.Passenger.Nationality": {
+                  "style": "form"
+                },
+                "Booking.Passenger.DateOfBirth": {
+                  "style": "form"
+                },
+                "Booking.Passenger.ImageUrl": {
+                  "style": "form"
+                },
+                "Booking.Passenger.PassportScanUrl": {
+                  "style": "form"
+                },
+                "Booking.Passenger.PhoneNumber": {
+                  "style": "form"
+                },
+                "Booking.Passenger.Email": {
+                  "style": "form"
+                },
+                "Booking.Passenger.Bookings": {
+                  "style": "form"
+                },
+                "Booking.Schedule.ScheduleId": {
+                  "style": "form"
+                },
+                "Booking.Schedule.AircraftId": {
+                  "style": "form"
+                },
+                "Booking.Schedule.DepartureAirportId": {
+                  "style": "form"
+                },
+                "Booking.Schedule.ArrivalAirportId": {
+                  "style": "form"
+                },
+                "Booking.Schedule.DepartureTime": {
+                  "style": "form"
+                },
+                "Booking.Schedule.ArrivalTime": {
+                  "style": "form"
+                },
+                "Booking.Schedule.FlightStatus": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.AircraftId": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.AircraftName": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.Model": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.TailNumber": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.CategoryId": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.Capacity": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.PricePerHour": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.ExteriorImageUrl": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.InteriorImageUrl": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.Status": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.ExteriorFile": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.InteriorFile": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.Category.CategoryId": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.Category.CategoryName": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.Category.Description": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.Category.Aircrafts": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Aircraft.FlightSchedules": {
+                  "style": "form"
+                },
+                "Booking.Schedule.DepartureAirport.AirportId": {
+                  "style": "form"
+                },
+                "Booking.Schedule.DepartureAirport.AirportName": {
+                  "style": "form"
+                },
+                "Booking.Schedule.DepartureAirport.IATACode": {
+                  "style": "form"
+                },
+                "Booking.Schedule.DepartureAirport.City": {
+                  "style": "form"
+                },
+                "Booking.Schedule.DepartureAirport.Country": {
+                  "style": "form"
+                },
+                "Booking.Schedule.ArrivalAirport.AirportId": {
+                  "style": "form"
+                },
+                "Booking.Schedule.ArrivalAirport.AirportName": {
+                  "style": "form"
+                },
+                "Booking.Schedule.ArrivalAirport.IATACode": {
+                  "style": "form"
+                },
+                "Booking.Schedule.ArrivalAirport.City": {
+                  "style": "form"
+                },
+                "Booking.Schedule.ArrivalAirport.Country": {
+                  "style": "form"
+                },
+                "Booking.Schedule.Bookings": {
+                  "style": "form"
+                },
+                "Booking.Broker.BrokerId": {
+                  "style": "form"
+                },
+                "Booking.Broker.BrokerName": {
+                  "style": "form"
+                },
+                "Booking.Broker.AvatarUrl": {
+                  "style": "form"
+                },
+                "Booking.Broker.ContactPerson": {
+                  "style": "form"
+                },
+                "Booking.Broker.Email": {
+                  "style": "form"
+                },
+                "Booking.Broker.PhoneNumber": {
+                  "style": "form"
+                },
+                "Booking.Broker.CommissionRate": {
+                  "style": "form"
+                },
+                "Booking.Broker.Address": {
+                  "style": "form"
+                },
+                "Booking.Broker.Bookings": {
+                  "style": "form"
+                },
+                "Booking.Billing.BillingId": {
+                  "style": "form"
+                },
+                "Booking.Billing.BookingId": {
+                  "style": "form"
+                },
+                "Booking.Billing.SubTotal": {
+                  "style": "form"
+                },
+                "Booking.Billing.TaxAmount": {
+                  "style": "form"
+                },
+                "Booking.Billing.GrandTotal": {
+                  "style": "form"
+                },
+                "Booking.Billing.BrokerCommission": {
+                  "style": "form"
+                },
+                "Booking.Billing.PaymentMethod": {
+                  "style": "form"
+                },
+                "Booking.Billing.PaymentStatus": {
+                  "style": "form"
+                },
+                "Booking.Billing.TransactionReference": {
+                  "style": "form"
+                },
+                "Booking.Billing.InvoiceImageUrl": {
+                  "style": "form"
+                },
+                "Booking.Billing.PaymentDate": {
+                  "style": "form"
+                },
+                "Booking.Billing.CreatedDate": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.BookingId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.PassengerId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.ScheduleId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.BrokerId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.SeatCount": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.BasePrice": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Surcharge": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.TotalAmount": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Status": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.BookingDate": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.InternalNotes": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Passenger.PassengerId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Passenger.FullName": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Passenger.PassportNumber": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Passenger.PassportExpiry": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Passenger.Nationality": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Passenger.DateOfBirth": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Passenger.ImageUrl": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Passenger.PassportScanUrl": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Passenger.PhoneNumber": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Passenger.Email": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Passenger.Bookings": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.ScheduleId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.AircraftId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.DepartureAirportId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.ArrivalAirportId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.DepartureTime": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.ArrivalTime": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.FlightStatus": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.AircraftId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.AircraftName": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.Model": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.TailNumber": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.CategoryId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.Capacity": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.PricePerHour": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.ExteriorImageUrl": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.InteriorImageUrl": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.Status": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.ExteriorFile": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.InteriorFile": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.Category.CategoryId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.Category.CategoryName": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.Category.Description": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.Category.Aircrafts": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Aircraft.FlightSchedules": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.DepartureAirport.AirportId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.DepartureAirport.AirportName": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.DepartureAirport.IATACode": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.DepartureAirport.City": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.DepartureAirport.Country": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.ArrivalAirport.AirportId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.ArrivalAirport.AirportName": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.ArrivalAirport.IATACode": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.ArrivalAirport.City": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.ArrivalAirport.Country": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Schedule.Bookings": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Broker.BrokerId": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Broker.BrokerName": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Broker.AvatarUrl": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Broker.ContactPerson": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Broker.Email": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Broker.PhoneNumber": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Broker.CommissionRate": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Broker.Address": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Broker.Bookings": {
+                  "style": "form"
+                },
+                "Booking.Billing.Booking.Billing": {
+                  "style": "form"
+                },
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Billing"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Billing"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Billing"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Billings/{id}/confirm": {
+      "post": {
+        "tags": [
+          "Billings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "method": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                },
+                "method": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Billings/{id}": {
+      "delete": {
+        "tags": [
+          "Billings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Bookings": {
+      "get": {
+        "tags": [
+          "Bookings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Booking"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Booking"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Booking"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Bookings"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Booking"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Booking"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Booking"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Bookings/{id}": {
+      "get": {
+        "tags": [
+          "Bookings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Booking"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Booking"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Booking"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Bookings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Bookings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Brokers": {
+      "get": {
+        "tags": [
+          "Brokers"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Broker"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Broker"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Broker"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Brokers"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "BrokerName",
+                  "Email"
+                ],
+                "type": "object",
+                "properties": {
+                  "BrokerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "BrokerName": {
+                    "maxLength": 150,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "AvatarUrl": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "ContactPerson": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "PhoneNumber": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string",
+                    "format": "tel"
+                  },
+                  "CommissionRate": {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "Bookings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Booking"
+                    }
+                  },
+                  "imageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "BrokerId": {
+                  "style": "form"
+                },
+                "BrokerName": {
+                  "style": "form"
+                },
+                "AvatarUrl": {
+                  "style": "form"
+                },
+                "ContactPerson": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "PhoneNumber": {
+                  "style": "form"
+                },
+                "CommissionRate": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "Bookings": {
+                  "style": "form"
+                },
+                "imageFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Broker"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Broker"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Broker"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Brokers/{id}": {
+      "get": {
+        "tags": [
+          "Brokers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Broker"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Broker"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Broker"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Brokers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "BrokerName",
+                  "Email"
+                ],
+                "type": "object",
+                "properties": {
+                  "BrokerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "BrokerName": {
+                    "maxLength": 150,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "AvatarUrl": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "ContactPerson": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "PhoneNumber": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string",
+                    "format": "tel"
+                  },
+                  "CommissionRate": {
+                    "maximum": 100,
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "Bookings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Booking"
+                    }
+                  },
+                  "imageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "BrokerId": {
+                  "style": "form"
+                },
+                "BrokerName": {
+                  "style": "form"
+                },
+                "AvatarUrl": {
+                  "style": "form"
+                },
+                "ContactPerson": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "PhoneNumber": {
+                  "style": "form"
+                },
+                "CommissionRate": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "Bookings": {
+                  "style": "form"
+                },
+                "imageFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Brokers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/FlightSchedules": {
+      "get": {
+        "tags": [
+          "FlightSchedules"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FlightSchedule"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FlightSchedule"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FlightSchedule"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "FlightSchedules"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FlightSchedule"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FlightSchedule"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FlightSchedule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FlightSchedule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FlightSchedule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FlightSchedule"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FlightSchedules/{id}": {
+      "get": {
+        "tags": [
+          "FlightSchedules"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FlightSchedule"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FlightSchedule"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FlightSchedule"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "FlightSchedules"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FlightSchedule"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FlightSchedule"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FlightSchedule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "FlightSchedules"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Passengers": {
+      "get": {
+        "tags": [
+          "Passengers"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Passengers"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "DateOfBirth",
+                  "FullName",
+                  "Nationality",
+                  "PassportExpiry",
+                  "PassportNumber"
+                ],
+                "type": "object",
+                "properties": {
+                  "PassengerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FullName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "PassportNumber": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "PassportExpiry": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "Nationality": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "DateOfBirth": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "ImageUrl": {
+                    "type": "string"
+                  },
+                  "PassportScanUrl": {
+                    "type": "string"
+                  },
+                  "PhoneNumber": {
+                    "maxLength": 15,
+                    "minLength": 0,
+                    "type": "string",
+                    "format": "tel"
+                  },
+                  "Email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "Bookings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Booking"
+                    }
+                  },
+                  "avatarFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "passportFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "PassengerId": {
+                  "style": "form"
+                },
+                "FullName": {
+                  "style": "form"
+                },
+                "PassportNumber": {
+                  "style": "form"
+                },
+                "PassportExpiry": {
+                  "style": "form"
+                },
+                "Nationality": {
+                  "style": "form"
+                },
+                "DateOfBirth": {
+                  "style": "form"
+                },
+                "ImageUrl": {
+                  "style": "form"
+                },
+                "PassportScanUrl": {
+                  "style": "form"
+                },
+                "PhoneNumber": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Bookings": {
+                  "style": "form"
+                },
+                "avatarFile": {
+                  "style": "form"
+                },
+                "passportFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Passengers/{id}": {
+      "get": {
+        "tags": [
+          "Passengers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Passengers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "DateOfBirth",
+                  "FullName",
+                  "Nationality",
+                  "PassportExpiry",
+                  "PassportNumber"
+                ],
+                "type": "object",
+                "properties": {
+                  "PassengerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FullName": {
+                    "maxLength": 100,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "PassportNumber": {
+                    "maxLength": 20,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "PassportExpiry": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "Nationality": {
+                    "maxLength": 50,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "DateOfBirth": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "ImageUrl": {
+                    "type": "string"
+                  },
+                  "PassportScanUrl": {
+                    "type": "string"
+                  },
+                  "PhoneNumber": {
+                    "maxLength": 15,
+                    "minLength": 0,
+                    "type": "string",
+                    "format": "tel"
+                  },
+                  "Email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "Bookings": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Booking"
+                    }
+                  },
+                  "avatarFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "passportFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "PassengerId": {
+                  "style": "form"
+                },
+                "FullName": {
+                  "style": "form"
+                },
+                "PassportNumber": {
+                  "style": "form"
+                },
+                "PassportExpiry": {
+                  "style": "form"
+                },
+                "Nationality": {
+                  "style": "form"
+                },
+                "DateOfBirth": {
+                  "style": "form"
+                },
+                "ImageUrl": {
+                  "style": "form"
+                },
+                "PassportScanUrl": {
+                  "style": "form"
+                },
+                "PhoneNumber": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Bookings": {
+                  "style": "form"
+                },
+                "avatarFile": {
+                  "style": "form"
+                },
+                "passportFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Passengers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "operationId": "GetWeatherForecast",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Account": {
+        "required": [
+          "Password",
+          "Username"
+        ],
+        "type": "object",
+        "properties": {
+          "AccountId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Username": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "Password": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "Role": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Aircraft": {
+        "required": [
+          "AircraftName",
+          "Model",
+          "Status",
+          "TailNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "AircraftId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AircraftName": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "Model": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "TailNumber": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string"
+          },
+          "CategoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Capacity": {
+            "maximum": 500,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "PricePerHour": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          },
+          "ExteriorImageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "InteriorImageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "Status": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "Category": {
+            "$ref": "#/components/schemas/AircraftCategory"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AircraftCategory": {
+        "required": [
+          "CategoryName"
+        ],
+        "type": "object",
+        "properties": {
+          "CategoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CategoryName": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "Description": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "Aircrafts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Aircraft"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Airport": {
+        "required": [
+          "AirportName",
+          "City",
+          "Country",
+          "IATACode"
+        ],
+        "type": "object",
+        "properties": {
+          "AirportId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AirportName": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "IATACode": {
+            "maxLength": 3,
+            "minLength": 3,
+            "type": "string"
+          },
+          "City": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "Country": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Billing": {
+        "required": [
+          "BookingId",
+          "GrandTotal",
+          "PaymentMethod",
+          "PaymentStatus",
+          "SubTotal"
+        ],
+        "type": "object",
+        "properties": {
+          "BillingId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BookingId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SubTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "TaxAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "GrandTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "BrokerCommission": {
+            "type": "number",
+            "format": "double"
+          },
+          "PaymentMethod": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "PaymentStatus": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "TransactionReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "InvoiceImageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "PaymentDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "CreatedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Booking": {
+            "$ref": "#/components/schemas/Booking"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Booking": {
+        "required": [
+          "BasePrice",
+          "BookingDate",
+          "PassengerId",
+          "ScheduleId",
+          "SeatCount",
+          "Status",
+          "TotalAmount"
+        ],
+        "type": "object",
+        "properties": {
+          "BookingId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PassengerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ScheduleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BrokerId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SeatCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BasePrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "Surcharge": {
+            "type": "number",
+            "format": "double"
+          },
+          "TotalAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "Status": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "BookingDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "InternalNotes": {
+            "type": "string",
+            "nullable": true
+          },
+          "Passenger": {
+            "$ref": "#/components/schemas/Passenger"
+          },
+          "Schedule": {
+            "$ref": "#/components/schemas/FlightSchedule"
+          },
+          "Broker": {
+            "$ref": "#/components/schemas/Broker"
+          },
+          "Billing": {
+            "$ref": "#/components/schemas/Billing"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Broker": {
+        "required": [
+          "BrokerName",
+          "Email"
+        ],
+        "type": "object",
+        "properties": {
+          "BrokerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BrokerName": {
+            "maxLength": 150,
+            "minLength": 0,
+            "type": "string"
+          },
+          "AvatarUrl": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "ContactPerson": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "Email": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "PhoneNumber": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string",
+            "format": "tel",
+            "nullable": true
+          },
+          "CommissionRate": {
+            "maximum": 100,
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          },
+          "Address": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FlightSchedule": {
+        "required": [
+          "AircraftId",
+          "ArrivalAirportId",
+          "ArrivalTime",
+          "DepartureAirportId",
+          "DepartureTime",
+          "FlightStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "ScheduleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AircraftId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DepartureAirportId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ArrivalAirportId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DepartureTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ArrivalTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "FlightStatus": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "Aircraft": {
+            "$ref": "#/components/schemas/Aircraft"
+          },
+          "DepartureAirport": {
+            "$ref": "#/components/schemas/Airport"
+          },
+          "ArrivalAirport": {
+            "$ref": "#/components/schemas/Airport"
+          },
+          "Bookings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Booking"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "Username": {
+            "type": "string",
+            "nullable": true
+          },
+          "Password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Passenger": {
+        "required": [
+          "DateOfBirth",
+          "FullName",
+          "Nationality",
+          "PassportExpiry",
+          "PassportNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "PassengerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "FullName": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "PassportNumber": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string"
+          },
+          "PassportExpiry": {
+            "type": "string",
+            "format": "date"
+          },
+          "Nationality": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "DateOfBirth": {
+            "type": "string",
+            "format": "date"
+          },
+          "ImageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "PassportScanUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "PhoneNumber": {
+            "maxLength": 15,
+            "minLength": 0,
+            "type": "string",
+            "format": "tel",
+            "nullable": true
+          },
+          "Email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
+          "Bookings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Booking"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "properties": {
+          "Date": {
+            "type": "string",
+            "format": "date"
+          },
+          "TemperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TemperatureF": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "Summary": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Nhập Token theo cú pháp: Bearer {your_token}",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
