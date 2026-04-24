@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JetAdminSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8355637805d609f119aa0c6ce4b6566bc31b099f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+007a990606506031c6b0b1f81c4b131bc5a6c26a")]
 [assembly: System.Reflection.AssemblyProductAttribute("JetAdminSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JetAdminSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
