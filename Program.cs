@@ -8,16 +8,31 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
+// --- DÒNG NÀY PHẢI ĐẶT SAU USING VÀ TRƯỚC BUILDER ĐỂ FIX LỖI DATETIME POSTGRES ---
+System.AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 var builder = WebApplication.CreateBuilder(args);
 
-// --- 0. CẤU HÌNH PORT CHO RENDER ---
+// --- 0. CẤU HÌNH PORT CHO RENDER (GIÚP APP KHÔNG BỊ CRASH) ---
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
-// --- 1. CẤU HÌNH DATABASE (ÉP DÙNG POSTGRESQL ĐỂ CHẠY MIGRATION) ---
-// Sau khi Update-Database thành công, ông có thể đổi lại logic IF/ELSE như cũ
+// --- 1. CẤU HÌNH DATABASE ĐA MÔI TRƯỜNG (SQL SERVER <-> POSTGRESQL) ---
 builder.Services.AddDbContext<JetAdminDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+    if (builder.Environment.IsDevelopment())
+    {
+        // Chạy Local dùng SQL Server
+        options.UseSqlServer(connectionString);
+    }
+    else
+    {
+        // Chạy trên Render dùng PostgreSQL
+        options.UseNpgsql(connectionString);
+    }
+});
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -56,7 +71,10 @@ builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowReactApp", policy =>
-        policy.WithOrigins("http://localhost:5173", "https://private-jet-management-izkf.onrender.com")
+        policy.WithOrigins(
+                "http://localhost:5173",
+                "https://private-jet-management-izkf.onrender.com"
+              )
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials());
@@ -90,7 +108,7 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// --- 5. MIDDLEWARE ---
+// --- 5. MIDDLEWARE PIPELINE ---
 app.UseSwagger();
 app.UseSwaggerUI(c => {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "JetAdminSystem v1");
@@ -99,7 +117,9 @@ app.UseSwaggerUI(c => {
 
 app.UseHttpsRedirection();
 app.UseCors("AllowReactApp");
+
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
 app.Run();
